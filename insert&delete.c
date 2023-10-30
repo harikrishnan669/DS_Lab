@@ -3,8 +3,8 @@
 void insert(int);
 void del();
 void display();
-int front=0;
-int rear=0;
+int front=-1;
+int rear=-1;
 int queue[5];
 int main()
 {

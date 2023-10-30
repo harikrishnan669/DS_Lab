@@ -3,7 +3,7 @@
 #include<stdlib.h>
 void push(int);
 void pop();
-int top=0;
+int top=-1;
 int stack[4];
 int main()
 {

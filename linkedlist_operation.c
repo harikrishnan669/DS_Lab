@@ -115,6 +115,12 @@ void deletefromanyposition()
     node *ptr,*prev;
     ptr=header;
     prev=header;
+    if(ptr==NULL)
+    {
+      printf("The list is empty");
+    }
+    else
+    {
         printf("Enter the key:");
         scanf("%d",&key);
         while(ptr->data!=key)

@@ -62,16 +62,9 @@ void insertAtanyposition()
 {
     int num,key;
     node*new,*ptr;
-    if(new==NULL)
-    {
-        printf("No insertion is possible");
-    }
-    else
-    {
         ptr=header;
         printf("Enter the key:");
         scanf("%d",&key);
-    }
     while(ptr->data!=key)
     {
         ptr=ptr->link;
@@ -88,12 +81,6 @@ void insertAtlast()
 {
     int num;
     node *new,*ptr;
-    if(new==NULL)
-    {
-        printf("No insertion is not possible");
-    }
-    else
-    {
         ptr=header;
         while(ptr->link!=NULL)
         {
@@ -128,12 +115,6 @@ void deletefromanyposition()
     node *ptr,*prev;
     ptr=header;
     prev=header;
-    if(ptr==NULL)
-    {
-        printf("The list is empty");
-    }
-    else
-    {
         printf("Enter the key:");
         scanf("%d",&key);
         while(ptr->data!=key)

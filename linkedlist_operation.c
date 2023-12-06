@@ -86,7 +86,6 @@ void insertAtlast()
         {
             ptr=ptr->link; 
         }
-    }
     printf("Enter the num:");
     scanf("%d",&num);
     new=(node*)malloc(sizeof(node));

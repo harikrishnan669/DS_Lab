@@ -5,7 +5,7 @@ typedef struct node1
     int data;
     struct node1 *link;
 }node;
-node *top=NULL;
+node *top;
 void push()
 {
     int num;
@@ -45,12 +45,14 @@ void display()
 int main()
 {
     int choice;
-    do
+    while(1)
     {
-        printf("Enter your choice\n");
         printf("1-push\n");
         printf("2-pop\n");
         printf("3-Display\n");
+        while(1)
+        {
+        printf("Enter your choice\n");    
         scanf("%d",&choice);
         switch(choice)
         {
@@ -61,5 +63,6 @@ int main()
             case 3:display();
             break;
         }
-    }while(choice<=3);
+    }
+    }
 }

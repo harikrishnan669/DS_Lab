@@ -24,9 +24,9 @@ void pop()
         printf("Stack empty");
         return;
     }
-    node *temp=top;
+    node *ptr=top;
     top=top->link;
-    free(temp);
+    free(ptr);
 }
 void display()
 {
@@ -35,11 +35,11 @@ void display()
         printf("Stack empty");
         return;
     }
-    node *temp=top;
-    while(temp!=NULL)
+    node *ptr=top;
+    while(ptr!=NULL)
     {
-        printf("%d\n",temp->data);
-        temp=temp->link;
+        printf("%d\n",ptr->data);
+        ptr=ptr->link;
     }
 }
 int main()

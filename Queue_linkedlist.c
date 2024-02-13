@@ -1,99 +1,81 @@
-#include <stdio.h> 
-#include <stdlib.h>
-
-
-struct node 
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct node1
 {
     int data;
-    struct node *link;
-};
-
-struct node *front = NULL;
-struct node *rear = NULL;
-
-
-void enqueue(int item) 
+    struct node1*link;
+}node;
+node* f=NULL;
+node*r=NULL;
+void enqueue()
 {
-    struct node *newnode;
-    newnode = (struct node * ) malloc(sizeof(struct node));
-
-    if((front == NULL) && (rear == NULL)) 
+    node*new;
+    int x;
+    new=(node*)malloc(sizeof(node));
+    printf("Enter the data to be inserted:");
+    scanf("%d",&x);
+    if(f==NULL && r==NULL)
     {
-        front=rear=newnode;
-        rear->data=item;
-        rear->link=NULL;
-
-    } 
-    else 
-    {
-        rear->link=newnode;
-        newnode->data=item;
-        newnode->link=NULL;
-        rear=newnode;
+    new->data=x;
+    new->link=NULL;
+    f=r=new;
     }
-
-}
-
-
-void dequeue() 
-{
-    struct node *ptr;
-    int value;
-    if (front == NULL) 
+    else
     {
-        printf("\nUnderflow\n");
-    } 
-    else 
-    {
-        value=front->data;
-        ptr=ptr->link;
-        free(front);
-        front=ptr;
-        printf("Deleted element is %d\n",value);
-        return;
+     r->link=new;
+     new->data=x;
+     new->link=NULL;
+     r=new;
     }
 }
-
 void display()
 {
-    struct node *ptr;
-    if ((front == NULL) && (rear == NULL)) 
+    if(f==NULL && r==NULL)
     {
-        printf("\nQueue is Empty\n");
-        return;
-    } 
-    printf("The queue is \n");
-    ptr=front;
-    while(ptr->link!=NULL)
-    {
-       printf("%d\n",ptr->data);
-       ptr=ptr->link;
+        printf("Queue underflow");
     }
-    printf("%d\n",ptr->data);
+    else
+    {
+        node*ptr=f;
+        while(ptr!=NULL)
+        {
+            printf("%d ",ptr->data);
+            ptr=ptr->link;
+        }
+        printf("\n");
+    }
 }
-
+void dequeue()
+{
+    if(f==NULL && r==NULL)
+    {
+        printf("Queue underflow");
+    }
+    struct node*ptr=f;
+    printf("Dlelted element is:%d\n",f->data);
+    f=f->link;
+    free(ptr);
+}
 void main()
 {
-    int choice=1,item;
-    printf("\nImplementation of Queue using Linked List\n");
-    printf("1-Enqueue\n2-Dequeue\n3-Display\n");
-    do
+    int choice;
+    while(1)
     {
-      printf("Enter your choice: ");
-      scanf("%d",&choice);
-      switch(choice)
-      {
-        case 1:printf("Enter the value to be inserted: ");
-              scanf("%d",&item);
-              enqueue(item);
-              break;
-        case 2:dequeue();
-               break;
-        case 3:display();
-               break;
-        default:printf("Invalid choice\n");
-               break;
-      }
+    printf("1:Insert\n2:Delete\n3:Display\n");
+    while(1)
+    {
+        printf("Enter your choice:");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1: enqueue();
+                    break;
+            case 2:dequeue();
+                    break;
+            case 3:display();
+                    break;
+            default:printf("Enter a valid choice");
+        }
     }
-    while(choice<=3);
+    }
 }

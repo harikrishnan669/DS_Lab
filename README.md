@@ -1,6 +1,5 @@
 # DATA STRUCTURES USING C (S3)
 # Questions
-# Questions in order of the repository files
 Inlcudes syllabus questions and some try outs.
 1. Implement a queue using linked lists with the following operations
   (1) Enqueue
